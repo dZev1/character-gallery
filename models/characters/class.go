@@ -1,25 +1,22 @@
 package characters
 
-type Class uint8
+type Class string
 
 const (
-	Barbarian Class = iota
-	Bard
-	Cleric
-	Druid
-	Fighter
-	Monk
-	Paladin
-	Ranger
-	Rogue
-	Sorcerer
-	Warlock
-	Wizard
+	BARBARIAN Class = "barbarian"
+	BARD      Class = "bard"
+	CLERIC    Class = "cleric"
+	DRUID     Class = "druid"
+	FIGHTER   Class = "fighter"
+	MONK      Class = "monk"
+	PALADIN   Class = "paladin"
+	RANGER    Class = "ranger"
+	ROGUE     Class = "rogue"
+	SORCERER  Class = "sorcerer"
+	WARLOCK   Class = "warlock"
+	WIZARD    Class = "wizard"
 )
 
 func (c Class) String() string {
-	return [...]string{
-		"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
-		"Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard",
-	}[c]
+	return string(c)
 }

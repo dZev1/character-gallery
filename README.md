@@ -46,38 +46,6 @@ A RESTful API built in Go to create, manage and see a gallery of Role Playing Ga
 
     - Server will be listening in `http://localhost:8080`.
 
-## Character Enumeration References
-
-- **Body Types**:
-  - 0: Type A
-  - 1: Type B
-
-- **Species**:
-  - 0: Aasimar
-  - 1: Dragonborn
-  - 2: Dwarf
-  - 3: Elf
-  - 4: Gnome
-  - 5: Goliath
-  - 6: Halfling
-  - 7: Human
-  - 8: Orc
-  - 9: Tiefling
-
-- **Classes**:
-  - 0: Barbarian
-  - 1: Bard
-  - 2: Cleric
-  - 3: Druid
-  - 4: Fighter
-  - 5: Monk
-  - 6: Paladin
-  - 7: Ranger
-  - 8: Rogue
-  - 9: Sorcerer
-  - 10: Warlock
-  - 11: Wizard
-
 ## API References
 
 ### Create a character
@@ -86,12 +54,12 @@ A RESTful API built in Go to create, manage and see a gallery of Role Playing Ga
 - **Description**: Creates a new character with their stats and customization.
 - **Request Body**:
 
-```(JSON)
+```JSON
 {
     "name": "Arwen",
-    "body_type": 1,
-    "species": 3,
-    "class": 11,
+    "body_type": "type_b",
+    "species": "elf",
+    "class": "wizard",
     "stats": {
         "strength": 10,
         "dexterity": 5,
@@ -119,14 +87,14 @@ A RESTful API built in Go to create, manage and see a gallery of Role Playing Ga
 
 - **Succesful Response (`200 OK`)**: Returns an array of character objects, each including stats and customization fields:
 
-```(JSON)
+```JSON
 [
     {
         "id": 1,
         "name": "Shallan",
-        "body_type": 1,
-        "species": 7,
-        "class": 1,
+        "body_type": "type_b",
+        "species": "human",
+        "class": "monk",
         "stats": {
             ...
         },
@@ -137,9 +105,9 @@ A RESTful API built in Go to create, manage and see a gallery of Role Playing Ga
     {
         "id": 2,
         "name": "Dalinar",
-        "body_type": 0,
-        "species": 3,
-        "class": 11,
+        "body_type": "type_a",
+        "species": "human",
+        "class": "fighter",
         "stats": {
             ...
         },
@@ -156,13 +124,13 @@ A RESTful API built in Go to create, manage and see a gallery of Role Playing Ga
 - **Description**: Returns a single character by their `id`.
 - **Succesful Response (`200 OK`)**: Returns the object of the character with the specified `id`, including stats and customization fields:
 
-```(JSON)
+```JSON
 {
     "id": 1,
     "name": "Shallan",
-    "body_type": 1,
-    "species": 7,
-    "class": 1,
+    "body_type": "type_b",
+    "species": "human",
+    "class": "monk",
     "stats": {
         ...
     },
@@ -178,12 +146,12 @@ A RESTful API built in Go to create, manage and see a gallery of Role Playing Ga
 - **Description**: Updates an existing character by their `id`.
 - **Request Body**: A character object with the updated fields.
 
-```(JSON)
+```JSON
 {
-    "name": "Shallan Davar",
-    "body_type": 1,
-    "species": 7,
-    "class": 1,
+    "name": "Shallan",
+    "body_type": "type_b",
+    "species": "human",
+    "class": "monk",
     "stats": {
         "strength": 8,
         "dexterity": 7,

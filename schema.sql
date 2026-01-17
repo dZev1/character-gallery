@@ -4,9 +4,16 @@ IF NOT EXISTS characters
 (
     id          BIGSERIAL PRIMARY KEY,
     name        TEXT NOT NULL,
-    body_type   SMALLINT NOT NULL,
-    species     SMALLINT NOT NULL,
-    class       SMALLINT NOT NULL
+    body_type   TEXT NOT NULL CHECK (body_type IN ('type_a', 'type_b')),
+    species     TEXT NOT NULL CHECK (species IN (
+                    'aasimar', 'dragonborn', 'dwarf', 'elf', 'gnome', 
+                    'goliath', 'halfling', 'human', 'orc', 'tiefling'
+                )),
+    class       TEXT NOT NULL CHECK (class IN (
+                    'barbarian', 'bard', 'cleric', 'druid', 'fighter', 
+                    'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 
+                    'warlock', 'wizard'
+                ))
 );
 
 

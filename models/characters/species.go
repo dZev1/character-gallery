@@ -1,23 +1,20 @@
 package characters
 
-type Species uint8
+type Species string
 
 const (
-	Aasimar Species = iota
-	Dragonborn
-	Dwarf
-	Elf
-	Gnome
-	Goliath
-	Halfling
-	Human
-	Orc
-	Tiefling
+	AASIMAR Species = "aasimar"
+	DRAGONBORN Species = "dragonborn"
+	DWARF Species = "dwarf"
+	ELF Species = "elf"
+	GNOME Species = "gnome"
+	GOLIATH Species = "goliath"
+	HALFLING Species = "halfling"
+	HUMAN Species = "human"
+	ORC Species = "orc"
+	TIEFLING Species = "tiefling"
 )
 
 func (s Species) String() string {
-	return [...]string{
-		"Aasimar", "Dragonborn", "Dwarf", "Elf", "Gnome",
-		"Goliath", "Halfling", "Human", "Orc", "Tiefling",
-	}[s]
+	return string(s)
 }

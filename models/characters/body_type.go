@@ -1,12 +1,12 @@
 package characters
 
-type BodyType uint8
+type BodyType string
 
 const (
-	TypeA BodyType = iota
-	TypeB
+	TYPE_A BodyType = "type_a"
+	TYPE_B BodyType = "type_b"
 )
 
 func (bt BodyType) String() string {
-	return [...]string{"Type A", "Type B"}[bt]
+	return string(bt)
 }
