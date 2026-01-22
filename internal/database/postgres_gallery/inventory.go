@@ -17,6 +17,7 @@ func (cg *PostgresCharacterGallery) SeedItems() error {
 	for _, item := range inventory.Items {
 		err := cg.insertItemIntoPool(tx, &item)
 		if err != nil {
+			fmt.Println("Error inserting item:", err)
 			return err
 		}
 	}

@@ -31,7 +31,7 @@ A RESTful API built in Go to create, manage and see a gallery of Role Playing Ga
     - Add the following variable with the connection URL to your database:
 
         ```(.env)
-        DATABASE_URL="postgres://user:password@localhost:XXXX/database_name?sslmode=disable"
+        DATABASE_URL="postgres://user:password@localhost:XXXX/database_name?params"
         ```
 
 5. Run the application:

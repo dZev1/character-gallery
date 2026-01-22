@@ -1,5 +1,5 @@
 CREATE TABLE
-IF NOT EXISTS "item"
+IF NOT EXISTS "items"
 (
   "id" BIGSERIAL PRIMARY KEY,
   "name" text,
@@ -82,7 +82,7 @@ IF NOT EXISTS "customizations"
 (shoes BETWEEN 0 AND 30)
 );
 
-ALTER TABLE "inventory" ADD FOREIGN KEY ("item_id") REFERENCES "item" ("id") ON DELETE CASCADE;
+ALTER TABLE "inventory" ADD FOREIGN KEY ("item_id") REFERENCES "items" ("id") ON DELETE CASCADE;
 
 ALTER TABLE "stats" ADD FOREIGN KEY ("id") REFERENCES "characters" ("id") ON DELETE CASCADE;
 

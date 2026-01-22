@@ -10,13 +10,16 @@ import (
 	"github.com/joho/godotenv"
 )
 
+
 func main() {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("error loading .env file")
 	}
 	connectionString := os.Getenv("DATABASE_URL")
-
+	
+	currentVersion := os.Getenv("CURRENT_API_VERSION")
+	
 	err = godotenv.Overload("./config.env")
 	dbType := os.Getenv("DATABASE_TYPE")
 
@@ -32,12 +35,14 @@ func main() {
 		Gallery: gallery,
 	}
 
-	http.HandleFunc("POST /characters", handler.CreateCharacter)
-	http.HandleFunc("GET /characters", handler.GetAllCharacters)
-	http.HandleFunc("GET /characters/{id}", handler.GetCharacter)
-	http.HandleFunc("PUT /characters/{id}", handler.EditCharacter)
-	http.HandleFunc("DELETE /characters/{id}", handler.DeleteCharacter)
+	baseRoute := "/api/" + currentVersion
 
+	http.HandleFunc("POST "+baseRoute+"/characters", handler.CreateCharacter)
+	http.HandleFunc("GET "+baseRoute+"/characters", handler.GetAllCharacters)
+	http.HandleFunc("GET "+baseRoute+"/characters/{id}", handler.GetCharacter)
+	http.HandleFunc("PUT "+baseRoute+"/characters/{id}", handler.EditCharacter)
+	http.HandleFunc("DELETE "+baseRoute+"/characters/{id}", handler.DeleteCharacter)
+	
 	log.Println("Server listening on http://localhost:8080")
 	if err = http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatalf("Could not start server: %v", err)
