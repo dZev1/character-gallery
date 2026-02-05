@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "name": "Light Armor",
+        "type": "armor",
+        "description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
+        "equippable": true,
+        "rarity": 1,
+        "defense": 11
+    },
+    {
+        "id": 2,
+        "name": "Medium Armor",
+        "type": "armor",
+        "description": "Made of interlocking metal rings, a chain shirt is worn between layers of clothing or leather. This armor offers modest protection to the wearer's upper body and allows the sound of the rings rubbing against one another to be muffled by outer layers.",
+        "equippable": true,
+        "rarity": 2,
+        "defense": 15
+    },
+    {
+        "id": 3,
+        "name": "Heavy Armor",
+        "type": "armor",
+        "description": "This armor is leather armor with heavy rings sewn into it. The rings help reinforce the armor against blows from swords and axes.",
+        "equippable": true,
+        "rarity": 3,
+        "defense": 19
+    },
+    {
+        "id": 4,
+        "name": "Shield",
+        "type": "shield",
+        "description": "Made from metal and is carried on one hand",
+        "equippable": true,
+        "rarity": 2,
+        "defense": 6
+    },
+    {
+        "id": 5,
+        "name": "Club",
+        "type": "weapon",
+        "description": "A simple wooden club. This simple bladeless strike weapon is effective against most foes, is easily handled, and can break the guard of a shield.\nHowever, a single miss makes one wide open, so timing and proximities are crucial.",
+        "equippable": true,
+        "rarity": 1,
+        "damage": 10
+    },
+    {
+        "id": 6,
+        "name": "Dagger",
+        "type": "weapon",
+        "description": "This standard small dagger has only a modest attack but can be jabbed in rapid succession, and is effective in critical hits such as after a parry or when stabbing in the back.\nWith both slash and thrust attacks this dagger is useful in various situations.",
+        "rarity": 1,
+        "damage": 5
+    },
+    {
+        "id": 7,
+        "name": "Greatclub",
+        "type": "weapon",
+        "description": "Giant tree branch that goes BONK!",
+        "rarity": 3,
+        "damage": 15
+    },
+    {
+        "id": 8,
+        "name": "Shortbow",
+        "type": "weapon",
+        "description": "A stick and string that shoots arrow... I mean, that's what a bow is.",
+        "damage": 10
+    },
+    {
+        "id": 9,
+        "name": "Longsword",
+        "type": "weapon",
+        "description": "Widely-used standard straight sword, only matched in ubiquity by the shortsword.\nAn accessible sword which inflicts consistent regular damage and high slash damage, making it applicable to a variety of situations.",
+        "rarity": 3,
+        "damage": 10
+    },
+    {
+        "id": 10,
+        "name": "Adventurer's Backpack",
+        "type": "adventuring_gear",
+        "description": "Leather container designed for adventurers, holding up to 10 items.",
+        "rarity": 1,
+        "capacity": 10
+    },
+    {
+        "id": 11,
+        "name": "Magic Missile",
+        "type": "scroll",
+        "description": "You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range.",
+        "rarity": 3,
+        "capacity": 5
+    },
+    {
+        "id": 50,
+        "name": "Book of Dead Peaks",
+        "type": "wondrous_item",
+        "description": "A book containing the intricansies of the modern world",
+        "rarity": 5
+    }
+]

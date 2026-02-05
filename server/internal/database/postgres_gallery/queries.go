@@ -168,9 +168,20 @@ func (cg *PostgresCharacterGallery) updateStats(tx *sqlx.Tx, stats *characters.S
 
 func (cg *PostgresCharacterGallery) seedItemPool(tx *sqlx.Tx, item *inventory.Item) error {
 	query := `
-	INSERT INTO items (name, type, description, equippable, rarity, damage, defense, heal_amount, mana_cost, duration)
-	VALUES (:name, :type, :description, :equippable, :rarity, :damage, :defense, :heal_amount, :mana_cost, :duration)
-	ON CONFLICT (name, rarity) DO NOTHING;
+	INSERT INTO items (id, name, type, description, equippable, rarity, damage, defense, heal_amount, mana_cost, duration, cooldown)
+	VALUES (:id, :name, :type, :description, :equippable, :rarity, :damage, :defense, :heal_amount, :mana_cost, :duration, :cooldown)
+	ON CONFLICT (id) DO UPDATE SET
+		name = EXCLUDED.name,
+		type = EXCLUDED.type,
+		description = EXCLUDED.description,
+		equippable = EXCLUDED.equippable,
+		rarity = EXCLUDED.rarity,
+		damage = EXCLUDED.damage,
+		defense = EXCLUDED.defense,
+		heal_amount = EXCLUDED.heal_amount,
+		mana_cost = EXCLUDED.mana_cost,
+		duration = EXCLUDED.duration,
+		cooldown = EXCLUDED.cooldown;
 	`
 
 	_, err := tx.NamedExec(query, item)

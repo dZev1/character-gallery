@@ -22,6 +22,14 @@ func (cg *PostgresCharacterGallery) SeedItems(items []inventory.Item) error {
 		}
 	}
 
+	resetSeqQuery := `
+        SELECT setval(pg_get_serial_sequence('items', 'id'), (SELECT MAX(id) FROM items));
+    `
+	_, err = tx.Exec(resetSeqQuery)
+	if err != nil {
+		return fmt.Errorf("Error reseteando la secuencia de IDs: %w", err)
+	}
+
 	if err = tx.Commit(); err != nil {
 		return fmt.Errorf("%w: %w", ErrFailedCommitTransaction, err)
 	}

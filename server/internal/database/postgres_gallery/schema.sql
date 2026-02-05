@@ -3,18 +3,20 @@ CREATE TABLE IF NOT EXISTS "items" (
   "name" text,
   "type" text CHECK (
     type IN (
-      'weapon',
-      'sorcery',
       'armor',
-      'accessory',
-      'potion',
-      'spell',
-      'food',
-      'explosive',
-      'ammo',
+      'ring',
+      'weapon',
+      'shield',
       'tool',
-      'treasure',
-      'misc'
+      'adventuring_gear',
+      'rod',
+      'staff',
+      'wand',
+      'scroll',
+      'potion',
+      'ammo',
+      'consumable',
+      'wondrous_item'
     )
   ),
   "description" text,
@@ -24,7 +26,9 @@ CREATE TABLE IF NOT EXISTS "items" (
   "defense" int,
   "heal_amount" int,
   "mana_cost" int,
-  "duration" text
+  "duration" integer,
+  "cooldown" integer,
+  "capacity" integer
 );
 CREATE TABLE IF NOT EXISTS "inventory" (
   "character_id" bigserial,
@@ -114,11 +118,12 @@ ALTER TABLE "customizations"
 ADD FOREIGN KEY ("id") REFERENCES "characters" ("id") ON DELETE CASCADE;
 ALTER TABLE "inventory"
 ADD FOREIGN KEY ("character_id") REFERENCES "characters" ("id") ON DELETE CASCADE;
-
-
-DO $$
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'items_name_rarity_unique') THEN
-        ALTER TABLE items ADD CONSTRAINT items_name_rarity_unique UNIQUE (name, rarity);
-    END IF;
+DO $$ BEGIN IF NOT EXISTS (
+  SELECT 1
+  FROM pg_constraint
+  WHERE conname = 'items_name_rarity_unique'
+) THEN
+ALTER TABLE items
+ADD CONSTRAINT items_name_rarity_unique UNIQUE (name, rarity);
+END IF;
 END $$;

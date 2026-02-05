@@ -12,13 +12,7 @@ type Item struct {
 	Defense    *uint64 `db:"defense" json:"defense,omitempty"`
 	HealAmount *uint64 `db:"heal_amount" json:"heal_amount,omitempty"`
 	ManaCost   *uint64 `db:"mana_cost" json:"mana_cost,omitempty"`
-	Duration   *string `db:"duration" json:"duration,omitempty"`
-}
-
-func uint64Ptr(i uint64) *uint64 {
-	return &i
-}
-
-func strPtr(s string) *string {
-	return &s
+	Duration   *uint64 `db:"duration" json:"duration,omitempty"`
+	Cooldown   *uint64 `db:"cooldown" json:"cooldown,omitempty"`
+	Capacity   *uint64 `db:"capacity" json:"capacity,omitempty"`
 }
