@@ -59,7 +59,6 @@ func (h *CharacterHandler) GetAllCharacters(w http.ResponseWriter, r *http.Reque
 	chars, err := h.Gallery.GetAll(page, limit)
 
 	if err != nil {
-		log.Printf("")
 		http.Error(w, "Page not found", http.StatusNotFound)
 		return
 	}
