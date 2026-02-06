@@ -1,8 +1,8 @@
 package models
 
 import (
-	"github.com/dZev1/character-gallery/models/characters"
-	"github.com/dZev1/character-gallery/models/inventory"
+	"dZev1/character-gallery/models/characters"
+	"dZev1/character-gallery/models/inventory"
 )
 
 type CharacterGallery interface {

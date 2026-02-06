@@ -3,7 +3,7 @@ package postgres_gallery
 import (
 	"fmt"
 
-	"github.com/dZev1/character-gallery/models/characters"
+	"dZev1/character-gallery/models/characters"
 	"github.com/jmoiron/sqlx"
 )
 

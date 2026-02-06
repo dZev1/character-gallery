@@ -1,33 +1,8 @@
 import { CardField } from './CardField';
 import { StatsBox } from './StatsBox';
+import type { CharacterData } from '../types/CharacterData';
+import type { StatsData } from '../types/StatsData';
 import './CharacterCard.css'
-
-export interface CharacterData {
-    id: number;
-    name: string;
-    body_type: string;
-    species: string;
-    class: string;
-    stats: StatsData;
-    customization: CustomizationData;
-}
-
-export interface StatsData {
-    strength: number;
-    dexterity: number;
-    constitution: number;
-    intelligence: number;
-    wisdom: number;
-    charisma: number;
-}
-
-interface CustomizationData {
-    hair: number;
-    face: number;
-    shirt: number;
-    pants: number;
-    shoes: number;
-}
 
 interface CharacterProps {
     data: CharacterData;

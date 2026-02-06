@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/dZev1/character-gallery/models"
-	"github.com/dZev1/character-gallery/models/characters"
+	"dZev1/character-gallery/models"
+	"dZev1/character-gallery/models/characters"
 )
 
 type CharacterHandler struct {

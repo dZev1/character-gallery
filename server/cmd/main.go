@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/dZev1/character-gallery/handlers"
-	"github.com/dZev1/character-gallery/internal/database"
-	"github.com/dZev1/character-gallery/internal/middleware"
-	"github.com/dZev1/character-gallery/models/inventory"
+	"dZev1/character-gallery/handlers"
+	"dZev1/character-gallery/internal/database"
+	"dZev1/character-gallery/internal/middleware"
+	"dZev1/character-gallery/models/inventory"
 	"github.com/joho/godotenv"
 )
 

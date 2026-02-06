@@ -1,4 +1,4 @@
-module github.com/dZev1/character-gallery
+module dZev1/character-gallery
 
 go 1.25.0
 

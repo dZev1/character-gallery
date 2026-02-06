@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/dZev1/character-gallery/models"
+	"dZev1/character-gallery/models"
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/jmoiron/sqlx"
 )
