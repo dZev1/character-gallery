@@ -2,7 +2,7 @@ import { CardField } from './CardField';
 import { StatsBox } from './StatsBox';
 import type { CharacterData } from '../types/CharacterData';
 import type { StatsData } from '../types/StatsData';
-import './CharacterCard.css'
+import HumanB from '../assets/human_b_base.svg'
 
 interface CharacterProps {
     data: CharacterData;
@@ -17,18 +17,21 @@ export function CharacterCard({ data }: CharacterProps) {
     const bodyType = data.body_type == "type_a" ? "Type A" : "Type B"
 
     return (
-        <div className="chcard-container">
-            <div className="chcard-lcol">
-                <img src='https://unavatar.io/distortion2' className='chcard-lcol-avatar'>
-                </img>
-                <span className='chcard-lcol-id'>ID: {String(data.id).padStart(8, '0')}</span>
+        <div className="flex gap-5 w-[400pt] h-[270pt] bg-slate-400 rounded-3xl p-5 border-[3pt] border-solid border-white font-[Fredoka] text-black box-border">
+            <div className="flex flex-col h-full items-center w-36">
+                <img
+                    src={HumanB}
+                    className='w-full h-[295px] flex-1 border-solid border-black border-4 rounded-3xl'
+                />
+                <span className='font-bold flex-1 text-xl tracking-[1px]'>
+                    ID: {String(data.id).padStart(8, '0')}
+                </span>
             </div>
-            <div className='chcard-rcol'>
+            <div className='flex flex-col flex-1 justify-between'>
                 <CardField fieldName='NAME' fieldVal={data.name} />
                 <CardField fieldName='SPECIES' fieldVal={data.species} />
                 <CardField fieldName='CLASS' fieldVal={data.class} />
                 <CardField fieldName='BODY TYPE' fieldVal={bodyType} />
-
                 <StatsBox data={stats} />
             </div>
         </div>
