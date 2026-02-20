@@ -22,13 +22,17 @@ import (
 func main() {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("error loading .env file")
+		log.Println("Warning: Could not load .env file, relying on environment variables")
 	}
-	connectionString := os.Getenv("DATABASE_URL")
 
+	connectionString := os.Getenv("DATABASE_URL")
 	currentVersion := os.Getenv("API_VERSION")
 
 	err = godotenv.Overload("./config.env")
+	if err != nil {
+		log.Println("Warning: Could not load config.env file, relying on environment variables")
+	}
+
 	dbType := os.Getenv("DATABASE_TYPE")
 
 	gallery, err := database.NewCharacterGallery(dbType, connectionString)
