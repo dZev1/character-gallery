@@ -1,10 +1,10 @@
 FROM golang:1.26.0-alpine AS builder
 WORKDIR /app
 
-COPY go.mod go.sum ./
+COPY src/go.mod src/go.sum ./
 RUN go mod download
 
-COPY . .
+COPY src/ .
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o main ./cmd/main.go
 
@@ -16,9 +16,9 @@ RUN mkdir -p /root/internal/database/postgres_gallery/
 
 COPY --from=builder /app/main .
 
-COPY internal/database/postgres_gallery/schema.sql /root/internal/database/postgres_gallery/schema.sql
+COPY src/internal/database/postgres_gallery/schema.sql /root/internal/database/postgres_gallery/schema.sql
 
-COPY item_pool.json .
+COPY src/item_pool.json .
 
 EXPOSE 8080
 CMD ["./main"]
